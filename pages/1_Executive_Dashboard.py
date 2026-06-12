@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 
 st.set_page_config(
     page_title="Executive Dashboard",
@@ -14,10 +14,11 @@ st.title("📊 Executive Dashboard")
 # Load Data
 # =====================================================
 
-df = pd.read_csv(
-    "data\SkyCity_Feature_Engineered.csv"
-)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+df = pd.read_csv(
+    BASE_DIR / "data" / "SkyCity_Feature_Engineered.csv"
+)
 
 # =====================================================
 # KPI Metrics

@@ -14,7 +14,7 @@ st.title("Profit Prediction")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 model = joblib.load(
-    BASE_DIR / "models" / "total_profit_gb.pkl"
+    BASE_DIR / "Models" / "total_profit_gb.pkl"
 )
 
 # ---------------------------------------------------

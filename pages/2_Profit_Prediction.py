@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from pathlib import Path
 
 from utilities.preprocessing import create_features
 
@@ -10,8 +11,10 @@ st.title("Profit Prediction")
 # Load model
 # ---------------------------------------------------
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 model = joblib.load(
-    "models/total_profit_gb.pkl"
+    BASE_DIR / "models" / "total_profit_gb.pkl"
 )
 
 # ---------------------------------------------------

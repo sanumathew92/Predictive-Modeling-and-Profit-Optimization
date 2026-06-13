@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from pathlib import Path
 
 # -----------------------------------------------------
 # Title
@@ -9,15 +10,21 @@ import joblib
 st.title("What-If Simulator")
 
 # -----------------------------------------------------
+# Base Directory
+# -----------------------------------------------------
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# -----------------------------------------------------
 # Load Model
 # -----------------------------------------------------
 
 model = joblib.load(
-    "models/total_profit_gb.pkl"
+    BASE_DIR / "Models" / "total_profit_gb.pkl"
 )
 
 feature_names = joblib.load(
-    "models/feature_names.pkl"
+    BASE_DIR / "Models" / "feature_names.pkl"
 )
 
 # -----------------------------------------------------
@@ -25,9 +32,8 @@ feature_names = joblib.load(
 # -----------------------------------------------------
 
 df = pd.read_csv(
-    "data/SkyCity_Preprocessed.csv"
+    BASE_DIR / "data" / "SkyCity_Preprocessed.csv"
 )
-
 # -----------------------------------------------------
 # Restaurant Selector
 # -----------------------------------------------------

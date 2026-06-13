@@ -12,16 +12,22 @@ from scipy.optimize import minimize
 
 st.title("Channel Mix Optimization")
 
+# ---------------------------------------------------
+# Base Directory
+# ---------------------------------------------------
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # -----------------------------------------------------
 # Load Model
 # -----------------------------------------------------
 
 model = joblib.load(
-    "models/total_profit_gb.pkl"
+    BASE_DIR / "Models" / "total_profit_gb.pkl"
 )
 
 feature_names = joblib.load(
-    "models/feature_names.pkl"
+    BASE_DIR / "Models" / "feature_names.pkl"
 )
 
 # -----------------------------------------------------
@@ -29,9 +35,8 @@ feature_names = joblib.load(
 # -----------------------------------------------------
 
 df = pd.read_csv(
-    "data/SkyCity_Preprocessed.csv"
+    BASE_DIR / "data" / "SkyCity_Preprocessed.csv"
 )
-
 # -----------------------------------------------------
 # Restaurant Selector
 # -----------------------------------------------------
